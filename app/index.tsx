@@ -10,36 +10,29 @@ const roles = [
     key: "affected",
     title: "Affected Individual",
     icon: "🆘",
-    description: "Request emergency help, track requests, and view nearby support.",
+    description: "Submit emergency help requests and track request status.",
     route: "/affected",
   },
   {
     key: "organization",
     title: "Organization Staff",
     icon: "🏥",
-    description: "Update shelter resources, availability, status, and service information.",
+    description: "Update resource availability and organization status.",
     route: "/organization",
   },
   {
     key: "volunteer",
     title: "Volunteer",
     icon: "🤝",
-    description: "Submit verification, find nearby tasks, and manage task progress.",
+    description: "Submit verification, view available tasks, and manage task progress.",
     route: "/volunteer",
   },
   {
     key: "admin",
     title: "Admin / Coordinator",
     icon: "🧭",
-    description: "Coordinate requests, volunteers, resources, incidents, and alerts.",
+    description: "Manage help requests and approve or reject volunteers.",
     route: "/admin",
-  },
-  {
-    key: "reporter",
-    title: "Community Reporter",
-    icon: "📍",
-    description: "Report local incidents, track reports, and view safety notices.",
-    route: "/reporter",
   },
 ] as const;
 
@@ -54,12 +47,14 @@ export default function HomeScreen() {
         <Text style={styles.logo}>RB</Text>
         <View style={styles.heroText}>
           <Text style={styles.appName}>RescueBridge</Text>
-          <Text style={styles.tagline}>Emergency support, coordinated clearly.</Text>
+          <Text style={styles.tagline}>Iteration Planning 1 Prototype</Text>
         </View>
       </View>
 
       <Card accentColor={COLORS.emergency} style={styles.emergencyCard}>
-        <Text style={styles.emergencyTitle}>For immediate danger, contact emergency services.</Text>
+        <Text style={styles.emergencyTitle}>
+          For immediate danger, contact emergency services.
+        </Text>
         <Text style={styles.emergencyText}>
           This student prototype supports community coordination and does not replace 911.
         </Text>
@@ -67,31 +62,38 @@ export default function HomeScreen() {
 
       <SectionTitle
         title="Choose a role"
-        subtitle="Select a demo role to open its dashboard. All information is stored locally as mock data."
+        subtitle="This prototype includes only Iteration Planning 1 screens and local mock data."
       />
 
       {roles.map((role) => {
         const palette = ROLE_COLORS[role.key];
+
         return (
           <Card
             key={role.key}
-            onPress={() => router.push(role.route)}
+            onPress={() => router.push(role.route as any)}
             accentColor={palette.main}
             style={{ backgroundColor: palette.light }}
           >
             <View style={styles.roleRow}>
               <Text style={styles.roleIcon}>{role.icon}</Text>
+
               <View style={styles.roleContent}>
-                <Text style={[styles.roleTitle, { color: palette.main }]}>{role.title}</Text>
+                <Text style={[styles.roleTitle, { color: palette.main }]}>
+                  {role.title}
+                </Text>
                 <Text style={styles.roleDescription}>{role.description}</Text>
               </View>
+
               <Text style={[styles.arrow, { color: palette.main }]}>›</Text>
             </View>
           </Card>
         );
       })}
 
-      <Text style={styles.footer}>T4M26 • COMP231 • Mock-data prototype</Text>
+      <Text style={styles.footer}>
+        T4M26 • COMP231 • Iteration Planning 1 • Mock-data prototype
+      </Text>
     </Screen>
   );
 }
