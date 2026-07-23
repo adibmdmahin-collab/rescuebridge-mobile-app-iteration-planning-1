@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "RescueBridge",
+    "slug": "rescuebridge-mobile-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "rescuebridge",
+    "plugins": [
+      "expo-router"
+    ],
+    "android": {
+      "package": "com.t4m26.rescuebridge"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.t4m26.rescuebridge"
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
